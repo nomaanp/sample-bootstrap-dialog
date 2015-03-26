@@ -1,44 +1,31 @@
-<!DOCTYPE html>
-<html lang="">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Title Page</title>
+<a class="btn btn-primary inner" data-toggle="modal" href='#modal-id'>Inner Modal</a>
 
-		<!-- Bootstrap CSS -->
-		<link href="css/bootstrap.css" rel="stylesheet">
-
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-	</head>
-	<body>
-		<h1 class="text-center">Hello World</h1>
-		<a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Trigger modal</a>
-		<div class="modal fade" id="modal-id">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title">Modal title</h4>
-					</div>
-					<div class="modal-body">
-						
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
-					</div>
-				</div><!-- /.modal-content -->
-			</div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
-		<!-- jQuery -->
-		
-		<!-- Bootstrap JavaScript -->
-		<script src="js/bootstrap.js"></script>
-	</body>
-</html>
+<script type="text/javascript">
+	$(function(){
+		$('.inner').click(function(event){
+	        var $link = $(this);
+	        BootstrapDialog.show({
+	            title: 'Default Title',
+	            message: 'Click buttons below.',
+	            buttons: [{
+	                label: 'Title 1',
+	                action: function(dialog) {
+	                    dialog.setTitle('Title 1');
+	                }
+	            }, {
+	                label: 'Title 2',
+	                action: function(dialog) {
+	                    dialog.setTitle('Title 2');
+	                }
+	            },{
+	            label: 'Close',
+	                cssClass: 'btn-default',
+	                action: function(dialogItself){
+	                    dialogItself.close();
+                	}
+            	}]
+	        }).open();
+	        event.preventDefault();
+        });
+	});
+</script>
