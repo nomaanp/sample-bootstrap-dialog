@@ -1,0 +1,31 @@
+<a class="btn btn-primary inner" data-toggle="modal" href='#modal-id'>Inner Modal</a>
+
+<script type="text/javascript">
+	$(function(){
+		$('.inner').click(function(event){
+	        var $link = $(this);
+	        BootstrapDialog.show({
+	            title: 'Default Title',
+	            message: 'Click buttons below.',
+	            buttons: [{
+	                label: 'Title 1',
+	                action: function(dialog) {
+	                    dialog.setTitle('Title 1');
+	                }
+	            }, {
+	                label: 'Title 2',
+	                action: function(dialog) {
+	                    dialog.setTitle('Title 2');
+	                }
+	            },{
+	            label: 'Close',
+	                cssClass: 'btn-default',
+	                action: function(dialogItself){
+	                    dialogItself.close();
+                	}
+            	}]
+	        }).open();
+	        event.preventDefault();
+        });
+	});
+</script>

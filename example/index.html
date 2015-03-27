@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Title Page</title>
+
+		<!-- Bootstrap CSS -->
+		<link href="css/bootstrap.css" rel="stylesheet">
+	</head>
+	<body>
+		<h1 class="text-center">Hello World</h1>
+		<a class="btn btn-primary outer" href="javascript: void(0);" rel="remote.html">Open Outer Modal</a>
+
+		<!-- jQuery -->
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('.outer').click(function(event){
+			        var $link = $(this);
+			        new BootstrapDialog({
+			            type: BootstrapDialog.TYPE_DEFAULT,
+			            size: BootstrapDialog.SIZE_WIDE,
+			            closable: false,
+			            title   :   'Compose New Message',
+			            message :   $('<div style="min-height: 300px;">Loading...</div>').load($link.attr('rel')),
+			            buttons: [{
+			                label: 'Close',
+			                cssClass: 'btn-default',
+			                action: function(dialogItself){
+			                    dialogItself.close();
+			                }
+			            }]
+			        }).open();
+			        event.preventDefault();
+		        });
+			});
+		</script>
+		<!-- Bootstrap JavaScript -->
+		<script src="js/bootstrap.js"></script>
+		<script src="js/bootstrap-dialog.js"></script>
+
+	</body>
+</html>
